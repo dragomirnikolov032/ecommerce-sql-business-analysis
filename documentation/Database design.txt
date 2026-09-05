@@ -1,0 +1,84 @@
+DATABASE DESIGN
+
+
+1. CUSTOMERS
+
+CustomerID
+FirstName
+LastName
+Email
+RegistrationDate
+
+Purpose:
+Stores information about each customer.
+
+
+2. PRODUCTS
+
+ProductID
+ProductName
+Category
+UnitPrice
+UnitCost
+
+Purpose:
+Stores information about the products sold by the company.
+
+UnitPrice = normal selling price of the product.
+UnitCost = cost to the company of acquiring or producing the product.
+
+
+3. ORDERS
+
+OrderID
+CustomerID
+OrderDate
+ShippingCountry
+OrderStatus
+
+Purpose:
+Stores information about each customer order.
+
+CustomerID connects each order to the customer who placed it.
+
+OrderStatus can contain values such as:
+Completed
+Cancelled
+Returned
+
+
+4. ORDER_DETAILS
+
+OrderDetailID
+OrderID
+ProductID
+Quantity
+UnitPrice
+DiscountPercentage
+
+Purpose:
+Stores the individual products contained inside each order.
+
+One order can contain multiple products.
+
+
+5. DATABASE RELATIONSHIPS
+
+Customers
+    |
+    | CustomerID
+    |
+    v
+Orders
+    |
+    | OrderID
+    |
+    v
+Order_Details
+    |
+    | ProductID
+    |
+    v
+Products
+
+I made OrderKey table because there were equal OrderID values!
