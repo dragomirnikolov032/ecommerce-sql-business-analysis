@@ -2,10 +2,11 @@ USE EcommerceBusinessAnalysis;
 GO
 
 CREATE TABLE RawSales (
-    RowID INT,
+    SourceIndex NVARCHAR(20),
+    RowID NVARCHAR(20),
     OrderID NVARCHAR(30),
-    OrderDate DATE,
-    ShipDate DATE,
+    OrderDate NVARCHAR(20),
+    ShipDate NVARCHAR(20),
     ShipMode NVARCHAR(30),
     CustomerID NVARCHAR(30),
     CustomerName NVARCHAR(100),
@@ -20,11 +21,11 @@ CREATE TABLE RawSales (
     Category NVARCHAR(50),
     SubCategory NVARCHAR(50),
     ProductName NVARCHAR(255),
-    Sales DECIMAL(18,4),
-    Quantity INT,
-    Discount DECIMAL(10,4),
-    Profit DECIMAL(18,4),
-    ShippingCost DECIMAL(18,4),
+    Sales NVARCHAR(30),
+    Quantity NVARCHAR(20),
+    Discount NVARCHAR(30),
+    Profit NVARCHAR(30),
+    ShippingCost NVARCHAR(30),
     OrderPriority NVARCHAR(30)
 );
 GO
