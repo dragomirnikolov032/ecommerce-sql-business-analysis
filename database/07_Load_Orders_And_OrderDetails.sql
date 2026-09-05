@@ -2,6 +2,7 @@ USE EcommerceBusinessAnalysis;
 GO
 
 -- Load Orders
+
 INSERT INTO Orders (
     OrderID,
     CustomerID,
@@ -19,8 +20,8 @@ INSERT INTO Orders (
 SELECT DISTINCT
     OrderID,
     CustomerID,
-    OrderDate,
-    ShipDate,
+    TRY_CONVERT(DATE, OrderDate),
+    TRY_CONVERT(DATE, ShipDate),
     ShipMode,
     PostalCode,
     City,
@@ -33,10 +34,11 @@ FROM RawSales;
 GO
 
 
--- Load Order Details
+-- Load OrderDetails
+
 INSERT INTO OrderDetails (
     RowID,
-    OrderID,
+    OrderKey,
     ProductID,
     Sales,
     Quantity,
@@ -45,13 +47,26 @@ INSERT INTO OrderDetails (
     ShippingCost
 )
 SELECT
-    RowID,
-    OrderID,
-    ProductID,
-    Sales,
-    Quantity,
-    Discount,
-    Profit,
-    ShippingCost
-FROM RawSales;
+    TRY_CONVERT(INT, r.RowID),
+    o.OrderKey,
+    r.ProductID,
+    TRY_CONVERT(DECIMAL(18,4), r.Sales),
+    TRY_CONVERT(INT, r.Quantity),
+    TRY_CONVERT(DECIMAL(10,4), r.Discount),
+    TRY_CONVERT(DECIMAL(18,4), r.Profit),
+    TRY_CONVERT(DECIMAL(18,4), r.ShippingCost)
+FROM RawSales AS r
+INNER JOIN Orders AS o
+    ON r.OrderID = o.OrderID
+    AND r.CustomerID = o.CustomerID
+    AND TRY_CONVERT(DATE, r.OrderDate) = o.OrderDate
+    AND TRY_CONVERT(DATE, r.ShipDate) = o.ShipDate
+    AND r.ShipMode = o.ShipMode
+    AND r.PostalCode = o.PostalCode
+    AND r.City = o.City
+    AND r.State = o.State
+    AND r.Country = o.Country
+    AND r.Region = o.Region
+    AND r.Market = o.Market
+    AND r.OrderPriority = o.OrderPriority;
 GO
