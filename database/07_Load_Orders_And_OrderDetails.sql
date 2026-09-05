@@ -1,8 +1,57 @@
-SELECT COUNT(*) AS TotalOrders
-FROM Orders;
+USE EcommerceBusinessAnalysis;
+GO
 
-SELECT COUNT(*) AS TotalOrderDetails
-FROM OrderDetails;
-
-SELECT COUNT(*) AS TotalRawRows
+-- Load Orders
+INSERT INTO Orders (
+    OrderID,
+    CustomerID,
+    OrderDate,
+    ShipDate,
+    ShipMode,
+    PostalCode,
+    City,
+    State,
+    Country,
+    Region,
+    Market,
+    OrderPriority
+)
+SELECT DISTINCT
+    OrderID,
+    CustomerID,
+    OrderDate,
+    ShipDate,
+    ShipMode,
+    PostalCode,
+    City,
+    State,
+    Country,
+    Region,
+    Market,
+    OrderPriority
 FROM RawSales;
+GO
+
+
+-- Load Order Details
+INSERT INTO OrderDetails (
+    RowID,
+    OrderID,
+    ProductID,
+    Sales,
+    Quantity,
+    Discount,
+    Profit,
+    ShippingCost
+)
+SELECT
+    RowID,
+    OrderID,
+    ProductID,
+    Sales,
+    Quantity,
+    Discount,
+    Profit,
+    ShippingCost
+FROM RawSales;
+GO
