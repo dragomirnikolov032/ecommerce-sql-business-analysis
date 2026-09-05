@@ -17,8 +17,9 @@ CREATE TABLE Products (
 GO
 
 CREATE TABLE Orders (
-    OrderID NVARCHAR(30) PRIMARY KEY,
-    CustomerID NVARCHAR(30),
+    OrderKey INT IDENTITY(1,1) PRIMARY KEY,
+    OrderID NVARCHAR(30) NOT NULL,
+    CustomerID NVARCHAR(30) NOT NULL,
     OrderDate DATE,
     ShipDate DATE,
     ShipMode NVARCHAR(30),
@@ -37,7 +38,7 @@ GO
 
 CREATE TABLE OrderDetails (
     RowID INT PRIMARY KEY,
-    OrderID NVARCHAR(30),
+    OrderKey INT NOT NULL,
     ProductID NVARCHAR(50),
     Sales DECIMAL(18,4),
     Quantity INT,
@@ -45,8 +46,8 @@ CREATE TABLE OrderDetails (
     Profit DECIMAL(18,4),
     ShippingCost DECIMAL(18,4),
 
-    FOREIGN KEY (OrderID)
-        REFERENCES Orders(OrderID),
+    FOREIGN KEY (OrderKey)
+        REFERENCES Orders(OrderKey),
 
     FOREIGN KEY (ProductID)
         REFERENCES Products(ProductID)
