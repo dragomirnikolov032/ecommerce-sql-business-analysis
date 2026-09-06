@@ -2,7 +2,7 @@
 
 
 
-*Project Overview*
+## Project Overview
 
 
 
@@ -36,9 +36,10 @@ Primary and foreign keys were used to establish relationships between the tables
 
 
 
+---
 
 
-*Business Objectives*
+## Business Objectives
 
 
 
@@ -68,9 +69,10 @@ The analysis focuses on identifying:
 
 
 
+---
 
 
-*Dataset*
+## Dataset
 
 
 
@@ -104,7 +106,7 @@ The dataset includes information about:
 
 
 
-*Database Structure*
+## Database Structure
 
 
 
@@ -124,7 +126,7 @@ The raw dataset was first imported into a staging table and then transformed int
 
 
 
-*SQL Skills*
+## SQL Skills
 
 
 
@@ -164,7 +166,7 @@ The raw dataset was first imported into a staging table and then transformed int
 
 
 
-*Business Analysis*
+## Business Analysis
 
 
 
@@ -228,9 +230,10 @@ Which individual sales transactions generated the largest losses, and what chara
 
 
 
+--- 
 
 
-*Key Business Insights*
+## Key Business Insights
 
 
 
@@ -245,7 +248,7 @@ Which individual sales transactions generated the largest losses, and what chara
 
 
 
-*Project Structure*
+## Project Structure
 
 
 
