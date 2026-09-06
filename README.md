@@ -1,51 +1,54 @@
-**E-Commerce SQL Business Analysis**
+# E-Commerce SQL Business Analysis
 
 
+---
 
 ## Project Overview
-
 
 
 This project analyzes an international e-commerce dataset using Microsoft SQL Server and T-SQL.
 
 
-
 I transformed raw sales data into a relational database and used SQL to analyze revenue, profitability, customers, products, markets, discounts, and shipping efficiency.
-
 
 
 The original dataset was provided as a single flat CSV file containing 51,290 sales records.
 
 
-
 The raw data was first loaded into a staging table (`RawSales`) and validated before being transformed into four relational tables:
 
+- `Customers`
 
+- `Orders`
 
-\- `Customers`
+- `Products`
 
-\- `Orders`
-
-\- `Products`
-
-\- `OrderDetails`
-
-
+- `OrderDetails`
 
 Primary and foreign keys were used to establish relationships between the tables and support multi-table business analysis.
 
+---
+
+## Project Structure
+
+
+\- `Data/` - Raw dataset
+
+\- `database/` - Database creation, import, transformation, and validation scripts
+
+\- `queries/` - SQL business analysis queries
+
+\- `screenshots/` - Selected query results
+
+\- `documentation/` - Project planning and detailed business insights
 
 
 ---
 
-
 ## Business Objectives
 
 
-
 The analysis focuses on identifying:
-
-
 
 \- Sales and revenue trends
 
@@ -68,197 +71,159 @@ The analysis focuses on identifying:
 \- Characteristics of the largest loss-making transactions
 
 
+## SQL Skills
+
+
+- SELECT statements
+
+- Filtering and sorting
+
+- Aggregate functions
+
+- GROUP BY
+
+- HAVING
+
+- INNER JOIN
+
+- Multiple-table JOINs
+
+- Subqueries
+
+- CASE expressions
+
+- Date functions
+
+- TOP
+
+- DISTINCT
+
+- Ranking functions
+
+- Calculated financial metrics
+
+- Data validation
+
+- Relational database design
 
 ---
 
-
 ## Dataset
-
 
 
 The project uses the Global Superstore dataset containing international e-commerce sales transactions.
 
 
-
 The dataset includes information about:
 
+- Customers
 
+- Orders
 
-\- Customers
+- Products
 
-\- Orders
+- Countries and markets
 
-\- Products
+- Sales
 
-\- Countries and markets
+- Quantity
 
-\- Sales
+- Discounts
 
-\- Quantity
+- Profit
 
-\- Discounts
-
-\- Profit
-
-\- Shipping costs
-
-
-
+- Shipping costs
 
 
 ## Database Structure
 
 
-
 The raw dataset was first imported into a staging table and then transformed into a relational database consisting of:
 
+- Customers
 
+- Orders
 
-\- Customers
+- Products
 
-\- Orders
+- OrderDetails
 
-\- Products
-
-\- OrderDetails
-
-
-
-
-
-## SQL Skills
-
-
-
-\- SELECT statements
-
-\- Filtering and sorting
-
-\- Aggregate functions
-
-\- GROUP BY
-
-\- HAVING
-
-\- INNER JOIN
-
-\- Multiple-table JOINs
-
-\- Subqueries
-
-\- CASE expressions
-
-\- Date functions
-
-\- TOP
-
-\- DISTINCT
-
-\- Ranking functions
-
-\- Calculated financial metrics
-
-\- Data validation
-
-\- Relational database design
-
-
-
-
+--- 
 
 ## Business Analysis
 
 
-
-&#x20;1. Monthly Sales Performance
+### 1. Monthly Sales Performance
 
 How are total revenue, number of orders, and average order value changing over time?
 
 
 
-&#x20;2. Top Customers \& Profitability
+### 2. Top Customers \& Profitability
 
 Who are the top 10 customers by revenue, and how profitable are they?
 
 
 
-&#x20;3. Customer Segment Performance
+### 3. Customer Segment Performance
 
 Which customer segments generate the most revenue and profit?
 
 
 
-&#x20;4. Category \& Sub-Category Profitability
+### 4. Category \& Sub-Category Profitability
 
 Which product categories and sub-categories are the most and least profitable?
 
 
 
-&#x20;5. High-Sales, Low-Profit Products
+### 5. High-Sales, Low-Profit Products
 
 Which products generate high sales but poor or negative profitability?
 
 
 
-&#x20;6. Country Revenue \& Profit Contribution
+### 6. Country Revenue \& Profit Contribution
 
 Which countries contribute the most to company revenue and profit?
 
 
 
-&#x20;7. Discount Impact Analysis
+### 7. Discount Impact Analysis
 
 How do different discount levels affect sales volume, revenue, and profitability?
 
 
 
-&#x20;8. Shipping Mode Efficiency
+### 8. Shipping Mode Efficiency
 
 Which shipping modes are the most financially efficient?
 
 
 
-&#x20;9. Product Profit Ranking
+### 9. Product Profit Ranking
 
 What are the top 3 most profitable products within each product category?
 
 
 
-&#x20;10. Largest Loss-Making Transactions
+### 10. Largest Loss-Making Transactions
 
 Which individual sales transactions generated the largest losses, and what characteristics do they have in common?
 
-
-
 --- 
-
 
 ## Key Business Insights
 
 
+- **Growth was volume-driven:** revenue increased primarily because of a growing number of orders rather than substantially higher Average Order Value.
 
-* Over the analyzed period there is a consistently strong growth coming from acquiring more customers rather than more expensive orders.
-* Higher revenues aren't a sign of high profitability.
-* By analyzing the products profit margins I found a significant profitability issues in some products and subcategories.
-* In our example I found a strong negative relation with profitability which means the discounts weren't managed well.
-* I identified that some countries contribute with relatively weak profit but generate significant sales. This indicates the need for shipping costs and business strategy review in their operations.
-* When observing the biggest transaction losses I identified a pattern associated with aggressive discount levels, suggesting tighter controls over the discount levels.
+- **Revenue did not guarantee profitability:** several high-revenue customers and products generated weak or even negative profit.
 
+- **Product-level profitability problems were identified:** some products and sub-categories generated substantial sales while producing negative margins.
 
+- **Aggressive discounting significantly damaged profitability:** high-discount transactions were strongly associated with negative profit margins and some of the largest individual transaction losses.
 
+- **Market contribution differed substantially:** some countries generated meaningful revenue but contributed disproportionately little profit.
 
-
-## Project Structure
-
-
-
-\- `Data/` - Raw dataset
-
-\- `database/` - Database creation, import, transformation, and validation scripts
-
-\- `queries/` - SQL business analysis queries
-
-\- `screenshots/` - Selected query results
-
-\- `documentation/` - Project planning and detailed business insights
-
+- **Shipping efficiency varied considerably:** Standard Class had substantially lower shipping costs relative to revenue than faster shipping methods.
